@@ -4,11 +4,23 @@ var auto_move_time;
 //var am_left = false;
 //var am_right = false;
 
+//TODO implement slow but accurate algorithm
+
 function start_auto_move(){
 	auto_move_flag = true;
 	auto_move();
 }
 
+//TODO implement this as a possible drop down list
+function random_move(){
+	if ( auto_move_flag === false )
+		return;
+	var direction = Math.floor( Math.random() * 4 );
+	GM.move( direction );
+	setTimeout( "auto_move()", auto_move_time );
+}
+
+//TODO improve?
 function auto_move(){
 	if ( auto_move_flag === false )
 		return;
