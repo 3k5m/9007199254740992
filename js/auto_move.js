@@ -1,6 +1,8 @@
 
 var auto_move_flag = false;
 var auto_move_time;
+//var am_left = false;
+//var am_right = false;
 
 function start_auto_move(){
 	auto_move_flag = true;
@@ -10,8 +12,17 @@ function start_auto_move(){
 function auto_move(){
 	if ( auto_move_flag === false )
 		return;
-	var direction = Math.floor( Math.random() * 4 );
-	GM.move( direction );
+
+	GM.move( 2 );
+
+	//move left if can't move down
+	if(!GM.moved){
+		GM.move( 3 );
+		//move right if can't move left
+		if(!GM.moved){
+			GM.move( 1 );
+		}
+	}
 	setTimeout( "auto_move()", auto_move_time );
 }
 
