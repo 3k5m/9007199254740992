@@ -5,6 +5,8 @@ var auto_move_time;
 //var am_right = false;
 
 //TODO implement slow but accurate algorithm
+//idea: incremental 2048 game (imagine upgrades to increase size of grid, speed, etc)
+// gain pts after every loss based on score reached
 
 function start_auto_move(){
 	auto_move_flag = true;
